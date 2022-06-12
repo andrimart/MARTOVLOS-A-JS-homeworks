@@ -1,0 +1,82 @@
+<!-- 5. Для сторінки -->
+<!-- 		  <body> -->
+<!-- 		       <h1>I'am a big header!!!</h1> -->
+<!--         <div id="myDiv"> -->
+<!--             <p>First paragraph</p> -->
+<!--             <p>Second paragraph</p> -->
+<!--             <p>Third paragraph</p> -->
+<!--             <p>Fourth paragraph</p> -->
+<!--         </div> -->
+<!--         <ul id="myList"> -->
+<!--             <li>Make</li> -->
+<!--             <li>me</li> -->
+<!--             <li>horizontal!</li> -->
+<!--         </ul> -->
+<!--         <span>Make me invisible, please!</span> -->
+<!-- 	    </body> -->
+
+<!-- Напишіть скріпт, який за допомогою засобів DOM простилізує сторінку -->
+<!-- так як показано нижче: -->
+<!-- (малюнок PNG додається) -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM-HW-5</title>
+  </head>
+  <body>
+    <h1>I'am a big header!!!</h1>
+    <div id="myDiv">
+      <p>First paragraph</p> 
+      <p>Second paragraph</p>
+      <p>Third paragraph</p>
+      <p>Fourth paragraph</p> 
+    </div> 
+    <ul id="myList"> 
+      <li>Make</li> 
+      <li>me</li> 
+      <li>horizontal!</li> 
+    </ul> 
+    <span>Make me invisible, please!</span> 
+    <script>
+      let h1 = document.querySelectorAll('h1');
+      h1[0].style.backgroundColor = 'lightgreen';
+      let list = document.querySelectorAll('#myDiv');
+      let count = 1;
+      for (let i=0; i < list[0].childNodes.length; i++) {
+	  if (list[0].childNodes[i].tagName == 'P') {
+	      switch (count) {
+	      case 1:
+		  list[0].childNodes[i].style.fontWeight = 'bold';
+		  break;
+	      case 2:
+		  list[0].childNodes[i].style.color = 'red';
+		  break;
+	      case 3:
+		  list[0].childNodes[i].style.textDecoration = 'underline';
+		  break;
+	      case 4:
+		  list[0].childNodes[i].style.fontStyle = 'italic';
+		  break;
+	      }
+	      count++;
+	  }
+      }
+
+      list = document.querySelectorAll('#myList');
+      let str = '';
+      for (let i=0; i < list[0].childNodes.length; i++) {
+	  if (list[0].childNodes[i].tagName == 'LI') {
+	      str += list[0].childNodes[i].innerHTML;
+	      list[0].childNodes[i].remove();
+	  }
+      }
+      let li = document.createElement('LI');
+      list[0].appendChild(li).innerHTML = str;
+
+      let span = document.querySelectorAll('span');
+      span[0].style.visibility = 'hidden';
+    </script>
+  </body>
+</html>

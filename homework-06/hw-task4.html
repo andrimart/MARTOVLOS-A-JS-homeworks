@@ -1,0 +1,48 @@
+<!-- 4. На HTML-сторінці є ненумерований список з id="list", який -->
+<!-- складається із 5 елементів. У модальному вікні необхідно послідовно -->
+<!-- вивести вміст: -->
+
+<!-- 1) першого елемента списку -->
+<!-- 2) останнього елемента списку -->
+<!-- 3) другого елемента списку -->
+<!-- 4) четвертого елемента списку -->
+<!-- 5) третього елемента списку -->
+<!-- Зробіть завдання 2 різними способами.	 -->
+<!-- Приклад: -->
+<!--     • 1 -->
+<!--     • 2 -->
+<!--     • 3 -->
+<!--     • 4 -->
+<!--     • 5 -->
+<!-- Результат виводу: 1, 5, 2, 4, 3 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM-HW-4</title>
+  </head>
+  <body>
+    <ul id="list"> 
+      <li>First item</li> 
+      <li>Second item</li> 
+      <li>Third item</li> 
+      <li>Fourth item</li> 
+      <li>Fifth item</li> 
+    </ul> 
+    <script>
+      let list = document.querySelectorAll('#list');
+      let arr = [];
+      for (let i=0; i < list[0].childNodes.length; i++) {
+	  if (list[0].childNodes[i].tagName == 'LI')
+	      arr.push(list[0].childNodes[i].innerHTML);
+      }
+      let count = 1;
+      let out = '';
+      let order = [1, 5, 2, 4, 3];
+      for (let i=0; i < arr.length; i++)
+	  out += (count++) + ' ' + arr[order[i]-1] + '\n';
+      alert(out);
+    </script>
+  </body>
+</html>

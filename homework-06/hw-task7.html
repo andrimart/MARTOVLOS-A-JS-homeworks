@@ -1,0 +1,31 @@
+<!-- 7. Напишіть скріпт, який за допомогою засобів DOM створить для -->
+<!-- порожньої HTML-сторінки таку структуру з тегів і їх атрибутів. -->
+<!-- 	<body> -->
+<!-- 	  <main class="mainClass check item"> 	 -->
+<!--         <div id="myDiv"> -->
+<!--            <p>First paragraph</p>            -->
+<!--         </div> -->
+<!--      </main>  -->
+<!--   </body> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM-HW-7</title>
+  </head>
+  <body>
+    <script>
+      let main = document.createElement('main');
+      main.className = 'mainClass check item';
+      document.body.appendChild(main);
+      let div = document.createElement('div');
+      div.id = 'myDiv';
+      main.appendChild(div);
+      let p = document.createElement('p');
+      div.appendChild(p);
+      let pText = document.createTextNode('First paragraph');
+      p.appendChild(pText);
+    </script>
+  </body>
+</html>

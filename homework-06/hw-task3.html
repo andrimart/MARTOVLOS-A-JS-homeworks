@@ -1,0 +1,46 @@
+<!-- 3.  -->
+<!--        <body> -->
+<!-- 	<h2>Article header</h2>       -->
+<!--       <div id="text"> -->
+<!--         <p>First paragraph</p> -->
+<!--         <p>Second paragraph</p> -->
+<!--         <p>Third paragraph</p> -->
+<!--       </div> -->
+<!-- 	<p>Another text</p> -->
+<!--     </body> -->
+
+<!-- На вказаній HTML-сторінці необхідно отримати всі елементи всередині -->
+<!-- тега div по селектору (використати метод document.querySelectorAll). І -->
+<!-- вивести їх вміст із вказанням номеру абзацу в такому форматі: -->
+
+<!-- Selector text 0: First paragraph -->
+<!-- Selector text 1: Second paragraph -->
+<!-- Selector text 2: Third paragraph -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM-HW-3</title>
+  </head>
+  <body>
+    <h2>Article header</h2>    
+    <div id="text"> 
+      <p>First paragraph</p> 
+      <p>Second paragraph</p>
+      <p>Third paragraph</p>
+    </div> 
+    <p>Another text</p>
+    <script>
+      let text = document.querySelectorAll('#text');
+      let count = 0;
+      for (let i=0; i < text[0].childNodes.length; i++) {
+	  if (text[0].childNodes[i].tagName == 'P') {
+	      console.log('Selector text ' + count + ': '
+			  + text[0].childNodes[i].innerHTML);
+	      count++;
+	  }
+      }
+    </script>
+  </body>
+</html>

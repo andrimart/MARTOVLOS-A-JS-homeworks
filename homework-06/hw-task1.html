@@ -1,0 +1,29 @@
+<!-- 1. На HTML-сторінці є елемент div: -->
+<!--     <body>	 -->
+<!-- 	<div id="test">First</div> -->
+<!--   </body>	 -->
+<!-- Потрібно змінити вміст елемента із First на Last. Доступіться до елемента div хоча б 2 способами.	 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM-HW-1</title>
+  </head>
+  <body>
+    <p><div id="test">First</div></p>
+    <p><button onClick='trig()'>Trigger</button></p>
+    <script>
+      function trig() {
+	  let test_id = 'test';
+	  let test_val = document.getElementById(test_id).innerHTML;
+	  document.getElementById(test_id).innerHTML = test_val;
+	  if (test_val == 'First') {
+	      document.querySelector('#'+test_id).innerHTML = 'Last';
+	  } else if (test_val == 'Last') {
+	      document.querySelector('#'+test_id).innerHTML = 'First';
+	  }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!-- 6. Задано HTML-сторінку: -->
+<!--     <body> -->
+<!-- <input type="text" id="input1" value="Text1"> -->
+<!-- <input type="text" id="input2" value="Text2"> -->
+<!--   </body> -->
+
+<!-- 1) Користувач почергово вводить 2 повідомлення (використати -->
+<!-- prompt()). 1-е повідомлення записується в 1-ий <input>, 2-ге – в 2-ий. -->
+
+<!-- 2) Поміняти значення 1-го і 2-го інпутів місцями. -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM-HW-6</title>
+  </head>
+  <body>
+    <input type="text" id="input1" value="Text1" onfocus='setText()' class='myclass'>
+    <input type="text" id="input2" value="Text2" onfocus='setText()' class='myclass'>
+    <button onclick='swap()'>Swap</button>
+    <script>
+      function setText() {
+	  let input = document.querySelectorAll('.myclass');
+	  for (let i=0; i < input.length; i++) {
+	      if (input[i] == document.activeElement) {
+		  let val = prompt('Input value ' + input[i].id + ':');
+		  input[i].value = val;
+	      }
+	  }
+      }
+      function swap() {
+	  let input = document.querySelectorAll('.myclass');
+	  let val1 = input[0].value;
+	  let val2 = input[1].value;
+	  input[0].value = val2;
+	  input[1].value = val1;
+      }
+    </script>
+  </body>
+</html>
