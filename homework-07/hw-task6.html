@@ -1,0 +1,26 @@
+<!-- 6. Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і -->
+<!-- висоти) вікна браузера і виводитиме на поточну сторінку при її -->
+<!-- розтязі/стисканні відповідні значення. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BOM-HW-6</title>
+  </head>
+  <body>
+    <div id='info'></div>
+    <script>
+      function winSizeData() {
+	  document.getElementById('info').innerHTML
+	      = 'Width: ' + window.innerWidth
+	      + ', Height: ' + window.innerHeight;
+      }
+//    window.onresize = winSizeData; // NOT GOOD IDEA
+//    window.onload = winSizeData;   // NOT GOOD IDEA
+//    window.addEventListener('resize', winSizeData());// DOES NOT WORK
+      window.addEventListener('resize', winSizeData);  // RIGHT MANNER
+      winSizeData();
+    </script>
+  </body>
+</html>

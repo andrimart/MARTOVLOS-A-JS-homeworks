@@ -1,0 +1,41 @@
+<!-- 3. Задано сторінку з 3 кнопками і 1 лінкою. Напишіть Javascript код і -->
+<!-- реалізуйте HTML-сторінку з відповідними подіями на кожному елементові: -->
+
+<!-- 1) 1-ша кнопка – при кліку на неї колір фону сторінки міняється на синій -->
+<!-- 2) 2-га кнопка – при подвійному кліку на неї колір фону сторінки -->
+<!--    міняється на рожевий -->
+<!-- 3) 3-я кнопка – при натисненні і утримуванні кнопки колір фону -->
+<!--    сторінки стає коричневий. При відпусканні – білий. -->
+<!-- 4) При наведенні на лінку – колір фону стає жовтим, при відведенні – білим. -->
+<!-- Приклад – курсор наведений на лінку. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BOM-HW-3</title>
+  </head>
+  <body>
+    <button onclick='change2blue()'>Click to make page blue</button>
+    <button ondblclick='change2pink()'>Duble-click to make page pink</button>
+    <button onmousedown='change2brown()' onmouseup='change2white()'>Click and hold to make page brown</button>
+    <a href='' onmouseover='change2yellow()' onmouseout='change2white()'>Hover over to make page yellow</a>
+    <script>
+      function change2blue() {
+	  document.body.style.background = 'blue';
+      }
+      function change2pink() {
+	  document.body.style.background = 'pink';
+      }
+      function change2brown() {
+	  document.body.style.background = 'brown';
+      }
+      function change2white() {
+	  document.body.style.background = 'white';
+      }
+      function change2yellow() {
+	  document.body.style.background = 'yellow';
+      }
+    </script>
+  </body>
+</html>

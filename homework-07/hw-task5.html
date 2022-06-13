@@ -1,0 +1,40 @@
+<!-- 5. Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення  -->
+<!-- "I was pressed!", при наведенні на кнопку виводитиме повідомлення -->
+<!-- "Mouse on me!", а при відведенні курсора миші виводитиме повідомлення -->
+<!-- "Mouse is not on me!". -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BOM-HW-5</title>
+  </head>
+  <body>
+    <button onclick='clicked()'
+	    onmouseover='over()'
+	    onmouseout='out()'>Press me</button>
+    <div id='logArea'>
+    </div>
+    <script>
+      let log = document.querySelector('#logArea');
+      let messages = [];
+      function log_message(text) {
+	  let tm = new Date();
+	  messages.push(tm.toISOString() + ': ' + text);
+	  if (messages.length > 10) {
+	      messages.shift();
+	  }
+	  log.innerHTML = messages.join('<br>\n');
+      }
+      function clicked() {
+	  log_message('I was pressed!');
+      }
+      function over() {
+	  log_message('Mouse on me!');
+      }
+      function out() {
+	  log_message('Mouse is not on me!');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!-- 7. На сторінці потрібно реалізувати 2 випадаючих списки. У першому -->
+<!-- містяться назви країн, у другому – назви міст. Реалізувати роботу -->
+<!-- таким чином, щоб коли вибирається з лівого випадаючого списку певна -->
+<!-- країна - в правому випадаючому списку з'являлися міста цієї -->
+<!-- країни. Список міст формується динамічно, через JavaScript. Також -->
+<!-- потрібно нижче вивести назву обраної країни і місто. -->
+<!-- Код HTML-сторінки: -->
+<!-- <select name="country" id="country"> -->
+<!-- 	<option value="ger">Germany</option> -->
+<!-- 	<option value="usa">USA</option> -->
+<!-- 	<option value="ukr">Ukraine</option> -->
+<!-- </select> -->
+<!-- <select name="cities" id="cities"></select> -->
+<!-- <p></p> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BOM-HW-7</title>
+  </head>
+  <body>
+    <select name='country' id='country'>
+      <option value='ger'>Germany</option>
+      <option value='usa'>USA</option>
+      <option value='ukr'>Ukraine</option>
+    </select>
+    <select name='city' id='city' onchange='showCity()'></select>
+    <p><div id='result'></div></p>
+    <script>
+      let cities = {
+	  'ger': ['Berlin','Hamburg','Munich'],
+	  'usa': ['New York','Los Angeles','Chicago'],
+	  'ukr': ['Lviv','Kyiv','Ternopil']
+      };
+      let loc = [];
+      function setCity() {
+	  let country = document.getElementById('country');
+	  let curCountry_val = country.selectedOptions[0].value;
+	  var curCountry_text = country.options[country.selectedIndex].text;
+	  let city = document.getElementById('city');
+	  city.options.length = 0; // clear all elements
+	  for (let i=0; i < cities[curCountry_val].length; i++) {
+	      let option = document.createElement('option');
+	      option.text = cities[curCountry_val][i];
+	      city.add(option);
+	  }
+	  loc[0] = curCountry_text;
+	  loc[1] = '';
+	  document.getElementById('result').innerHTML = loc[0];
+	  showCity();
+      }
+      function showCity() {
+	  let city = document.getElementById('city');
+	  let curCity_text = city.selectedOptions[0].value;
+	  loc[1] = curCity_text;
+	  document.getElementById('result').innerHTML = loc.join(',');
+      }
+      let country = document.getElementById('country');
+      country.addEventListener('change', setCity);
+    </script>
+  </body>
+</html>

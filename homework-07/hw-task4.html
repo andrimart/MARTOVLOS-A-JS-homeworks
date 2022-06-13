@@ -1,0 +1,27 @@
+<!-- 4. Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний -->
+<!-- елемент випадаючого списку. Можуть видалятися всі елементи в -->
+<!-- будь-якому порядку. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BOM-HW-4</title>
+  </head>
+  <body>
+    <select name='sel' id='s1'>
+      <option value="val1">Петро</option>
+      <option value="val2">Іван</option>
+      <option value="val3">Олеся</option>
+      <option value="val4">Олексій</option>
+      <option value="val5">Ірина</option>
+    </select>
+    <button onclick='del()'>Choose and delete</button>
+    <script>
+      function del() {
+	  let s = document.getElementById("s1");
+	  s.remove(s.selectedIndex); 
+      }
+    </script>
+  </body>
+</html>
