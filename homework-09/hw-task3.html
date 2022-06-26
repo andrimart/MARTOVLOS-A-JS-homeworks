@@ -1,0 +1,40 @@
+<!-- 3. Знайдіть теги <div>, які стоять безпосередньо після <h3> і -->
+<!-- перемістіть кожен <div>-елемент так, щоб він став безпосередньо над -->
+<!-- <h3>. -->
+<!--    <h3>header1</h3> -->
+<!--    <div>text1</div> -->
+<!--    <h3>header2</h3> -->
+<!--    <div>text2</div> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQUERY-HW-3</title>
+  </head>
+  <body>
+    <h3>header1</h3>
+    <div>text1</div>
+    <h3>header2</h3>
+    <div>text2</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+      function swap(index, element) {
+	  let par = $(element).parent();
+	  if ($(element).next().is('div') == true) {
+	      let h3 = $(element);
+	      let div = $(element).next();
+	      $(element).next().remove();
+	      $(element).remove();
+	      $(par).append(div);
+	      $(par).append(h3);
+	  }
+      }
+      $("h3").each(swap);
+    </script>
+  </body>
+</html>

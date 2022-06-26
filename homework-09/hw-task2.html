@@ -1,0 +1,38 @@
+<!-- 2. Для заданої сторінки знайдіть всі <h2> з класом head, зробіть для -->
+<!-- них зелений колір фону, потім серед знайдених елементів знайдіть -->
+<!-- елементи з класом inner і поставте їм розмір шрифту 35px. -->
+<!--     <h2 class="head">header1</h2> -->
+<!--     <h2 class="head">header2 <span class="inner">inner elem1</span></h2> -->
+<!--     <h2>header3</h2> -->
+<!--     <h2 class="head">header4<span>inner elem2</span></h2> -->
+<!--     <h2>header5</h2> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQUERY-HW-2</title>
+  </head>
+  <body>
+    <h2 class="head">header1</h2> 
+    <h2 class="head">header2 <span class="inner">inner elem1</span></h2> 
+    <h2>header3</h2> 
+    <h2 class="head">header4<span>inner elem2</span></h2> 
+    <h2>header5</h2> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+      function chFont(index, element) {
+	  $(element).attr('style','font-size: 35px');
+      }
+      function chColor(index, element) {
+	  $(element).attr('style','background: green');
+	  $(".inner").each(chFont);
+      }
+      $("h2.head").each(chColor);
+    </script>
+  </body>
+</html>

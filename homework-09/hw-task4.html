@@ -1,0 +1,39 @@
+<!-- 4. На HTML-сторінці є 6 чекбоксів. Напишіть скріпт, який після того, -->
+<!-- як користувач позначив будь-які 3 чекбокси, всі чекбокси робить -->
+<!-- неактивними. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JQUERY-HW-4</title>
+  </head>
+  <body>
+<input type="checkbox" id="c1" name="c1"><label for="c1">c1</label><br>
+<input type="checkbox" id="c2" name="c2"><label for="c2">c2</label><br>
+<input type="checkbox" id="c3" name="c3"><label for="c3">c3</label><br>
+<input type="checkbox" id="c4" name="c4"><label for="c4">c4</label><br>
+<input type="checkbox" id="c5" name="c5"><label for="c5">c5</label><br>
+<input type="checkbox" id="c6" name="c6"><label for="c6">c6</label><br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+      let list = '#c1, #c2, #c3, #c4, #c5, #c6';
+      let c_checked = 0;
+      function mark() {
+	  if ($(this).is(':checkbox') == true) {
+	      if (this.checked)
+		  c_checked++;
+	      else
+		  c_checked--;
+	  }
+	  if (c_checked >= 3)
+	      $(list).prop('disabled', true);
+      }
+      $(list).change(mark);
+    </script>
+  </body>
+</html>
